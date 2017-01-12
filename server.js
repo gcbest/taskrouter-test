@@ -32,11 +32,17 @@ app.post("/create_task", function(req, res) {
 
  var client = new twilio.TaskRouterClient(accountSid, authToken, workspaceSid);
 
-client.workspace.tasks.list(function(err, data) {
-    data.tasks.forEach(function(task) {
-        console.log(task.attributes);
-    })
+client.workspace.tasks.create({
+    workflowSid: workflowSid,
+    attributes: '{"weeks":2}'
 });
+
+
+// client.workspace.tasks.list(function(err, data) {
+//     data.tasks.forEach(function(task) {
+//         console.log(task.attributes);
+//     })
+// });
     res.send({});
 });
 
