@@ -29,7 +29,7 @@ app.post("/create_task", function(req, res) {
 
     console.log(task.attributes);
     res.send({});
-})
+});
 
 
 app.listen(PORT, function() {
